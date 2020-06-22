@@ -1,4 +1,5 @@
 #include "solucion.h"
+#include "auxiliares.h"
 
 // Ejercicios
 
@@ -20,15 +21,23 @@ bool esReunionValida(reunion r, int prof, int freq) {
     return resp;
 }
 
-
 void acelerar(reunion& r, int prof, int freq) {
-    // Implementacions
-    return;
+    for (int i = 0; i < r.size(); ++i) {
+        senial s;
+
+        for (int j = 0; j < (r[i].first.size() / 2); ++j) {
+            s.push_back(r[i].first[(2*j)+1]);
+        }
+
+        r[i].first = s;
+    }
 }
 
 void ralentizar(reunion& r, int prof, int freq) {
-    // Implementacions
-    return;
+    for (int i = 0; i < r.size(); ++i) {
+        senial s = ralentizarSenial(r[i].first);
+        r[i].first = s;
+    }
 }
 
 vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
@@ -65,4 +74,6 @@ void filtradoMediana(senial& s, int R, int prof, int freq){
     // Implementacion
     return;
 }
+
+
 

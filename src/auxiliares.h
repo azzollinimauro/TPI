@@ -3,9 +3,11 @@
 
 #include "definiciones.h"
 #include <iostream>
+#include <fstream>
 
 senial leerSenial(string nombreArchivo);
 void escribirSenial(senial  s, string nombreArchivo);
+senial ralentizarSenial(senial  senial1);
 void ASSERT_SENIAL_EQ(senial s1, senial s2);
 void ASSERT_REUNION_EQ(reunion reunion1, reunion reunion2);
 void ASSERT_HABLANTES_EQ(vector<hablante> s1, vector<hablante> s2);

@@ -3,16 +3,44 @@
 #include "auxiliares.h"
 
 void escribirSenial(senial  s, string nombreArchivo){
-    // Implementacion
-    return;
+    std::ofstream archivo;
+    archivo.open(nombreArchivo);
+    for (int i = 0; i < s.size(); ++i) {
+        archivo << ' ' << s[i];
+    }
+
+    archivo.close();
 }
 
 
 senial leerSenial(string nombreArchivo){
     senial s;
-    // Implementacion
+    int muestra;
+    std::ifstream archivo;
+    archivo.open(nombreArchivo);
+
+    while(!archivo.eof()) {
+        archivo >> muestra;
+        s.push_back(muestra);
+    }
+
+    archivo.close();
+
     return s;
 }
+
+senial ralentizarSenial(senial senial1){
+    senial s;
+
+    for (int j = 0; j < (senial1.size()) - 1; ++j) {
+        s.push_back(senial1[j]);
+        s.push_back((senial1[j] + senial1[j + 1]) / 2);
+    }
+    s.push_back(senial1[senial1.size() -1 ]);
+
+    return s;
+}
+
 
 bool senialesOrdenadasIguales(senial s1, senial s2){
     if(s1.size() != s2.size())
