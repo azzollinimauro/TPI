@@ -23,20 +23,13 @@ bool esReunionValida(reunion r, int prof, int freq) {
 
 void acelerar(reunion& r, int prof, int freq) {
     for (int i = 0; i < r.size(); ++i) {
-        senial s;
-
-        for (int j = 0; j < (r[i].first.size() / 2); ++j) {
-            s.push_back(r[i].first[(2*j)+1]);
-        }
-
-        r[i].first = s;
+        r[i].first = acelerarSenial(r[i].first);
     }
 }
 
 void ralentizar(reunion& r, int prof, int freq) {
     for (int i = 0; i < r.size(); ++i) {
-        senial s = ralentizarSenial(r[i].first);
-        r[i].first = s;
+        r[i].first = ralentizarSenial(r[i].first);
     }
 }
 

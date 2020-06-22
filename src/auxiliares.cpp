@@ -36,11 +36,21 @@ senial ralentizarSenial(senial senial1){
         s.push_back(senial1[j]);
         s.push_back((senial1[j] + senial1[j + 1]) / 2);
     }
-    s.push_back(senial1[senial1.size() -1 ]);
+
+    s.push_back(senial1[senial1.size() -1]);
 
     return s;
 }
 
+senial acelerarSenial(senial senial1){
+    senial s;
+
+    for (int j = 0; j < (senial1.size() / 2); ++j) {
+        s.push_back(senial1[(2*j)+1]);
+    }
+
+    return s;
+}
 
 bool senialesOrdenadasIguales(senial s1, senial s2){
     if(s1.size() != s2.size())
