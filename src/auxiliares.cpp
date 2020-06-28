@@ -52,6 +52,73 @@ senial acelerarSenial(senial senial1){
     return s;
 }
 
+bool esMatriz(reunion r){
+    for(int i = 0; i < r.size(); i++){
+        if(r[i].first.size() != r[0].first.size()) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool senialesValidas(reunion r,int prof,int freq) {
+    for(int i = 0; i < r.size(); i++){
+        if( !esValida(r[i].first,prof,freq) ){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool hablantesDeReunionValidos(reunion r) {
+    set<int> hablantesEsperados;
+    for(int i = 0; i < r.size(); i++) {
+        hablantesEsperados.insert(i);
+    }
+    for(int i = 0; i < r.size(); i++) {
+        if(hablantesEsperados.find(r[i].second) != hablantesEsperados.end()){
+            hablantesEsperados.erase(r[i].second);
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+}
+
+bool haySilencioQueLoContiene(senial s,int muestra,int freq,int umbral) {
+    if(abs(s[muestra]) >= umbral){
+        return false;
+    }
+    int inferior = muestra;
+    int superior = muestra;
+
+    while(dureMenosDe(inferior,superior,freq,0.2)){
+        if(inferior > 0 && abs(s[inferior-1]) < umbral) {
+            inferior--;
+        }
+        else if(superior < s.size()-1 && abs(s[superior+1]) < umbral) {
+            superior++;
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool dureMenosDe(int inferior,int superior, int freq, double seg) {
+    return superior-inferior+1 < freq * seg;
+}
+
+double tono(senial s) {
+    double res = 0;
+    for(int i = 0; i < s.size(); i++){
+        res = res + abs( (double)s[i] / (double)s.size() );
+    }
+    return res;
+}
+
 bool senialesOrdenadasIguales(senial s1, senial s2){
     if(s1.size() != s2.size())
         return false;
@@ -72,9 +139,6 @@ bool reunionesIguales(reunion reunion1, reunion reunion2){
 
         if(reunion1[i].first.size() != reunion2[i].first.size())
             return false;
-
-        sort(reunion1[i].first.begin(), reunion1[i].first.end());
-        sort(reunion2[i].first.begin(), reunion2[i].first.end());
 
         if(!senialesOrdenadasIguales(reunion1[i].first, reunion2[i].first))
             return false;
@@ -110,8 +174,6 @@ bool intervalosOrdenadosIguales(vector<intervalo> s1, vector<intervalo> s2){
 }
 
 void ASSERT_SENIAL_EQ(senial s1, senial s2) {
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
 
     ASSERT_TRUE(senialesOrdenadasIguales(s1, s2));
 }
