@@ -29,6 +29,25 @@ senial leerSenial(string nombreArchivo){
     return s;
 }
 
+bool gritando(senial s, int umbral){
+    int i = 0;
+    int j = i + 19;
+    int k;
+    senial subSenial;
+    while(j < s.size() && tono(subSenial) <= umbral){
+        subSenial.clear();
+        k = i;
+        while(k <= j){
+            subSenial.push_back(s[k]);
+            k++;
+        }
+        i++;
+        j++;
+    }
+    bool respuesta = tono(subSenial) > umbral;
+    return respuesta;
+}
+
 senial ralentizarSenial(senial senial1){
     senial s;
 

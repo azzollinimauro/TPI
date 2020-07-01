@@ -7,6 +7,7 @@
 
 senial leerSenial(string nombreArchivo);
 void escribirSenial(senial  s, string nombreArchivo);
+bool gritando(senial s, int umbral)
 senial ralentizarSenial(senial  senial1);
 senial acelerarSenial(senial  senial1);
 bool esMatriz(reunion r);

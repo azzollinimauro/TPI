@@ -10,8 +10,8 @@ bool esSenial(vector<int> s, int prof, int freq) {
 }
 
 bool seEnojo(senial s, int umbral, int prof, int freq) {
-    bool resp = false;
-    // Implementacion
+     bool resp = false;
+    if(s.size() >= 20){resp = gritando(s,umbral);}
     return resp;
 }
 
