@@ -2,6 +2,39 @@
 #include "definiciones.h"
 #include "auxiliares.h"
 
+bool frecValida(int freq) {
+    return freq == 10;
+}
+
+bool profValida(int prof) {
+    return (prof == 8) || (prof == 16) || (prof == 32);
+}
+
+bool valorEnRango(int x, int prof) {
+    return (pow(-2,prof-1) <= x) && (x <= (pow(2,prof-1) - 1));
+}
+
+bool enRango(senial s, int prof) {
+    bool resp = true;
+    int i = 0;
+
+    for(i=0; i < s.size(); i++) {
+        if(!valorEnRango(s[i], prof)) {
+            resp = false;
+        }
+    }
+
+    return resp;
+}
+
+bool duraMasDe(senial s, int freq, float seg) {
+    return s.size() >= freq * seg;
+}
+
+bool esValida(senial s, int prof, int frec) {
+    return frecValida(frec) && profValida(prof) && enRango(s, prof) && duraMasDe(s, frec, 1);
+}
+
 void escribirSenial(senial  s, string nombreArchivo){
     std::ofstream archivo;
     archivo.open(nombreArchivo);
@@ -190,6 +223,13 @@ bool intervalosOrdenadosIguales(vector<intervalo> s1, vector<intervalo> s2){
         if (s1[i] != s2[i]){return false;}
 
     return true;
+}
+
+bool esSilencio(int valor, int umbral) {
+    int valorAbs = valor;
+    if(valorAbs < 0) valorAbs = -valorAbs; //Ver si no hay funcion pa' esto
+
+    return valorAbs < umbral;
 }
 
 void ASSERT_SENIAL_EQ(senial s1, senial s2) {

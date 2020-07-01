@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+bool duraMasDe(senial s, int freq, float seg);
+bool esValida(senial s, int prof, int frec);
 senial leerSenial(string nombreArchivo);
 void escribirSenial(senial  s, string nombreArchivo);
 bool gritando(senial s, int umbral)
@@ -16,6 +18,7 @@ bool hablantesDeReunionValidos(reunion r);
 bool haySilencioQueLoContiene(senial s,int muestra,int freq,int umbral);
 bool dureMenosDe(int inferior,int superior, int freq, double seg);
 double tono(senial s);
+bool esSilencio(int valor, int umbral);
 void ASSERT_SENIAL_EQ(senial s1, senial s2);
 void ASSERT_REUNION_EQ(reunion reunion1, reunion reunion2);
 void ASSERT_HABLANTES_EQ(vector<hablante> s1, vector<hablante> s2);

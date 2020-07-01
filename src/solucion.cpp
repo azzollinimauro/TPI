@@ -58,7 +58,36 @@ void ordenar(reunion& r, int freq, int prof) {
 
 vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
     vector<pair<int,int> > intervalos;
-    // Implementacion
+    int i = 0;
+
+    int silencioInicial = -1;
+    int silencioFinal = -1;
+    senial intervaloSilencio = {};
+
+    while(i < s.size()) {
+        while (esSilencio(s[i], umbral)) {
+            if(silencioInicial == -1) {
+                silencioInicial = i;
+            } else {
+                silencioFinal = i;
+            }
+
+            intervaloSilencio.push_back(s[i]);
+            i++;
+        }
+
+        if(silencioInicial != -1) {
+            if(duraMasDe(intervaloSilencio, freq, 0.2)) {
+                intervalos.push_back(make_pair(silencioInicial, silencioFinal));
+            }
+            silencioInicial = -1;
+            silencioFinal = -1;
+            intervaloSilencio = {};
+        }
+
+        i++;
+    }
+
     return intervalos;
 }
 
