@@ -232,6 +232,20 @@ bool esSilencio(int valor, int umbral) {
     return valorAbs < umbral;
 }
 
+int valorFiltrado(senial w, int i, int R) {
+    for(int j=i-R; j<i+R+1; j++) {
+        int min = j;
+        for(int k=j+1; k<i+R+1; k++) {
+            if (w[k] < w[min]) {
+                min = k;
+            }
+        }
+        swap(w[j], w[min]);
+    }
+
+    return w[i];
+}
+
 void ASSERT_SENIAL_EQ(senial s1, senial s2) {
 
     ASSERT_TRUE(senialesOrdenadasIguales(s1, s2));

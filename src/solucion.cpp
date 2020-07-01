@@ -121,6 +121,12 @@ senial reconstruir(senial s, int prof, int freq) {
 
 void filtradoMediana(senial& s, int R, int prof, int freq){
     // Implementacion
+    senial w = s;
+
+    for(int i=R; i<s.size()-R;i++) {
+        s[i] = valorFiltrado(w, i, R);
+    }
+
     return;
 }
 

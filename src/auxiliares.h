@@ -19,6 +19,7 @@ bool haySilencioQueLoContiene(senial s,int muestra,int freq,int umbral);
 bool dureMenosDe(int inferior,int superior, int freq, double seg);
 double tono(senial s);
 bool esSilencio(int valor, int umbral);
+int valorFiltrado(senial w, int i, int R);
 void ASSERT_SENIAL_EQ(senial s1, senial s2);
 void ASSERT_REUNION_EQ(reunion reunion1, reunion reunion2);
 void ASSERT_HABLANTES_EQ(vector<hablante> s1, vector<hablante> s2);
