@@ -6,6 +6,10 @@
 bool esSenial(vector<int> s, int prof, int freq) {
     bool resp = false;
     // Implementacion
+    if(esValida(s,prof, freq)) {
+        resp = true;
+    }
+
     return resp;
 }
 
