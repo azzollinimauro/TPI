@@ -56,8 +56,11 @@ vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
 }
 
 void ordenar(reunion& r, int freq, int prof) {
-    // Implementacion
-    return;
+      for(int i = 0; i < r.size() - 1; i++){
+        int max = maximo(r, i, r.size());
+        intercambia(r,i, max);
+    }
+
 }
 
 vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {

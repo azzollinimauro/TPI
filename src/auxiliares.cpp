@@ -122,6 +122,27 @@ bool senialesValidas(reunion r,int prof,int freq) {
     return true;
 }
 
+int maximo(reunion &r, int desde, int hasta){
+    int max = desde;
+    for(int i = desde + 1; i < hasta; i++){
+        if( tono ( r[max].first ) < tono (  r[i].first ) ){
+            max = i;
+        }
+    }
+    return max;
+}
+
+
+// i,j deben estar en el rango de la secuencia r
+
+void intercambia(reunion &r, int i, int j){
+    pair<senial,hablante>  x;
+    x = r[i];
+    r[i] = r[j];
+    r[j] = x;
+}
+
+
 bool hablantesDeReunionValidos(reunion r) {
     set<int> hablantesEsperados;
     for(int i = 0; i < r.size(); i++) {

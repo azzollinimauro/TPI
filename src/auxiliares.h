@@ -14,6 +14,8 @@ senial ralentizarSenial(senial  senial1);
 senial acelerarSenial(senial  senial1);
 bool esMatriz(reunion r);
 bool senialesValidas(reunion r,int prof,int freq);
+int maximo(reunion &r, int desde, int hasta);
+void intercambia(reunion &r, int i, int j);
 bool hablantesDeReunionValidos(reunion r);
 bool haySilencioQueLoContiene(senial s,int muestra,int freq,int umbral);
 bool dureMenosDe(int inferior,int superior, int freq, double seg);
