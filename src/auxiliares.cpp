@@ -246,6 +246,28 @@ bool intervalosOrdenadosIguales(vector<intervalo> s1, vector<intervalo> s2){
     return true;
 }
 
+bool esPasajePorCero(senial s, int i){
+    return s[i-1] * s[i+1] == -1;
+}
+
+int muestraArmada(int x, int y){
+    return (x + y) / 2;
+}
+
+int anteriorNoNulo(senial s, int i){
+    while(s[i - 1] == 0){
+        i--;
+    }
+    return s[i - 1];
+}
+
+int siguienteNoNulo(senial s, int i){
+    while(s[i + 1] == 0){
+        i++;
+    }
+    return s[i + 1];
+}
+
 bool esSilencio(int valor, int umbral) {
     int valorAbs = valor;
     if(valorAbs < 0) valorAbs = -valorAbs; //Ver si no hay funcion pa' esto

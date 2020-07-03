@@ -5,7 +5,7 @@
 
 bool esSenial(vector<int> s, int prof, int freq) {
     bool resp = false;
-    // Implementacion
+    
     if(esValida(s,prof, freq)) {
         resp = true;
     }
@@ -21,7 +21,7 @@ bool seEnojo(senial s, int umbral, int prof, int freq) {
 
 bool esReunionValida(reunion r, int prof, int freq) {
     bool resp = false;
-    // Implementacion
+    
     resp = r.size() > 0 && esMatriz(r) && senialesValidas(r,prof,freq) && hablantesDeReunionValidos(r);
     return resp;
 }
@@ -40,7 +40,7 @@ void ralentizar(reunion& r, int prof, int freq) {
 
 vector<hablante> tonosDeVozElevados(reunion r, int freq, int prof) {
     vector<hablante> maximos;
-    // Implementacion
+    
     double maximoTono = tono(r[0].first);
     for(int i = 0; i < r.size(); i++){
         double tonoActual = tono(r[i].first);
@@ -101,7 +101,7 @@ vector<intervalo > silencios(senial s, int prof, int freq, int umbral) {
 
 bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
     bool resp = false;
-    // Implementacion
+
     for(int i = 0; i < r[0].first.size(); i++){
         int personasHablando = 0;
         for(int h = 0; h < r.size(); h++){
@@ -118,12 +118,24 @@ bool hablantesSuperpuestos(reunion r, int prof, int freq, int umbral) {
 
 senial reconstruir(senial s, int prof, int freq) {
     senial senalReconstruida;
-    // Implementacion
+    senalReconstruida.push_back(s[0]);
+
+    for(int i = 1; i < s.size() - 1; i++){
+        if(s[i] != 0 || esPasajePorCero(s,i)){
+            senalReconstruida.push_back(s[i]);
+        }
+        else{
+          senalReconstruida.push_back(muestraArmada(anteriorNoNulo(s, i), siguienteNoNulo(s, i)));
+        }
+    }
+
+    senalReconstruida.push_back(s[s.size() - 1]);
+
     return senalReconstruida;
 }
 
 void filtradoMediana(senial& s, int R, int prof, int freq){
-    // Implementacion
+    
     senial w = s;
 
     for(int i=R; i<s.size()-R;i++) {
