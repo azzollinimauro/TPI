@@ -19,3 +19,30 @@ TEST(ordenarTEST, ordenarValido){
     ASSERT_REUNION_EQ(reunionOriginal, reunionOrdenada);
 }
 
+TEST(ordenarTEST, yaOrdenado){
+    senial hablante1 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+    senial hablante2 = {2, 6, 3, 8, 6, 10, 2, 12, 10, -15};
+    reunion reunionOriginal = {make_pair(hablante2, 1), make_pair(hablante1, 0)};
+    int prof = 8;
+    int freq = 10;
+
+    reunion reunionOrdenada = {make_pair(hablante2, 1), make_pair(hablante1, 0)};
+
+    ordenar(reunionOriginal, prof, freq);
+
+    ASSERT_REUNION_EQ(reunionOriginal, reunionOrdenada);
+}
+
+TEST(ordenarTEST, unSoloHablante){
+    senial hablante1 = {1, 3, -3, 4, 6, 0, -2, -8, 9, -15};
+    reunion reunionOriginal = {make_pair(hablante1, 0)};
+    int prof = 8;
+    int freq = 10;
+
+    reunion reunionOrdenada = {make_pair(hablante1, 0)};
+
+    ordenar(reunionOriginal, prof, freq);
+
+    ASSERT_REUNION_EQ(reunionOriginal, reunionOrdenada);
+}
+
