@@ -17,7 +17,7 @@ TEST(seEnojoTEST, senialMenorADosSegundos){
 TEST(seEnojoTEST, seEnojoValido){
     senial s = {9,3,-3,4,6,10,-2,-8,9,-15,7,1,3,-3,4,6,0,-2};
     int prof = 8;
-    int freq = 9;
+    int freq = 10;
     int umbral = 5;
 
     ASSERT_TRUE(seEnojo(s, umbral, prof, freq));
