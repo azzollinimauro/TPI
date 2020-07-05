@@ -289,7 +289,6 @@ int valorFiltrado(senial w, int i, int R) {
 }
 
 void ASSERT_SENIAL_EQ(senial s1, senial s2) {
-
     ASSERT_TRUE(senialesOrdenadasIguales(s1, s2));
 }
 
