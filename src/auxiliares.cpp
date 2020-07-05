@@ -270,7 +270,7 @@ int siguienteNoNulo(senial s, int i){
 
 bool esSilencio(int valor, int umbral) {
     int valorAbs = valor;
-    if(valorAbs < 0) valorAbs = -valorAbs; //Ver si no hay funcion pa' esto
+    if(valorAbs < 0) valorAbs = -valorAbs;
 
     return valorAbs < umbral;
 }
