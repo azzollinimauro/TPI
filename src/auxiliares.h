@@ -9,7 +9,7 @@ bool duraMasDe(senial s, int freq, float seg);
 bool esValida(senial s, int prof, int frec);
 senial leerSenial(string nombreArchivo);
 void escribirSenial(senial  s, string nombreArchivo);
-bool gritando(senial s, int umbral);
+bool gritando(senial s, int freq, int umbral);
 senial ralentizarSenial(senial  senial1);
 senial acelerarSenial(senial  senial1);
 bool esMatriz(reunion r);
