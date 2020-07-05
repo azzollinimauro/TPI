@@ -74,5 +74,43 @@ TEST(tonosDeVozElevadosTEST, tonoDeVozElevadoAlFinal) {
     ASSERT_TRUE(tonosDeVozElevados(reunion, prof, freq).size() == 1 && tonosDeVozElevados(reunion, prof, freq)[0] == 3);
 }
 
+TEST(tonosDeVozElevadosTEST, todosConTonoDeVozElevado){
+    senial hablante1;
+    senial hablante2;
+    senial hablante3;
+    senial hablante4;
+    for (int i = 0; i < 44; i++) {
+        hablante1.push_back(i);
+        hablante2.push_back(i);
+        hablante3.push_back(i);
+        hablante4.push_back(i);
+    }
+    reunion reunion = {make_pair(hablante1, 0), make_pair(hablante2, 1), make_pair(hablante3, 2),
+                       make_pair(hablante4, 3)};
+
+    int prof = 8;
+    int freq = 10;
+
+    ASSERT_HABLANTES_EQ(tonosDeVozElevados(reunion, prof, freq), {0,1,2,3});
+}
+
+TEST(tonoDeVozElevadosTEST, ultimoHablanteConTonoDeVozElevado){
+    senial hablante1;
+    senial hablante2;
+    senial hablante3;
+    for(int i = -12; i < 51; i++){
+        hablante1.push_back(i);
+        hablante2.push_back(i + 4);
+        hablante3.push_back((2*i));
+    }
+
+    reunion reunion = {make_pair(hablante1, 0), make_pair(hablante2, 1), make_pair(hablante3, 2)};
+    int prof = 32;
+    int freq = 10;
+
+    ASSERT_HABLANTES_EQ(tonosDeVozElevados(reunion, prof, freq), {2});
+}
+
+
 
 
