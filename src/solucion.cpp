@@ -16,7 +16,7 @@ bool esSenial(vector<int> s, int prof, int freq) {
 bool seEnojo(senial s, int umbral, int prof, int freq) {
     bool resp = false;
 
-    if(s.size() >= 20){ //conviene usar duraMasDe(s,freq,2)
+    if(duraMasDe(s, freq, 2)){
         resp = gritando(s,umbral);
     }
 
