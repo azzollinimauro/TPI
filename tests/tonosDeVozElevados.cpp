@@ -31,7 +31,9 @@ TEST(tonosDeVozElevadosTEST, tonoDeVozElevadoAlComienzo){
     int prof = 8;
     int freq = 10;
 
-    ASSERT_TRUE(tonosDeVozElevados(reunion, prof, freq).size() == 1 && tonosDeVozElevados(reunion, prof, freq)[0] == 0);
+    ASSERT_HABLANTES_EQ(tonosDeVozElevados(reunion, prof, freq), {0});
+
+
 }
 
 TEST(tonosDeVozElevadosTEST, tonoDeVozElevadoEnElMedio){
@@ -51,7 +53,7 @@ TEST(tonosDeVozElevadosTEST, tonoDeVozElevadoEnElMedio){
     int prof = 8;
     int freq = 10;
 
-    ASSERT_TRUE(tonosDeVozElevados(reunion, prof, freq).size() == 1 && tonosDeVozElevados(reunion, prof, freq)[0] == 2);
+    ASSERT_HABLANTES_EQ(tonosDeVozElevados(reunion, prof, freq), {2});
 }
 
 TEST(tonosDeVozElevadosTEST, tonoDeVozElevadoAlFinal) {
@@ -71,7 +73,8 @@ TEST(tonosDeVozElevadosTEST, tonoDeVozElevadoAlFinal) {
     int prof = 8;
     int freq = 10;
 
-    ASSERT_TRUE(tonosDeVozElevados(reunion, prof, freq).size() == 1 && tonosDeVozElevados(reunion, prof, freq)[0] == 3);
+    ASSERT_HABLANTES_EQ(tonosDeVozElevados(reunion, prof, freq), {3});
+
 }
 
 TEST(tonosDeVozElevadosTEST, todosConTonoDeVozElevado){
