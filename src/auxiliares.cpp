@@ -62,26 +62,8 @@ senial leerSenial(string nombreArchivo){
     return s;
 }
 
-bool gritando(senial s, int umbral){
-    int i = 0;
-    int j = i + 19; //habria que usar freq * 2
-    int k;
-    senial subSenial;
-    while(j < s.size() && tono(subSenial) <= umbral){
-        subSenial.clear();  // el tiempo de ejecucion queda s*freq
-        k = i;
-        while(k <= j){
-            subSenial.push_back(s[k]);
-            k++;
-        }
-        i++;
-        j++;
-    }
-    bool respuesta = tono(subSenial) > umbral;
-    return respuesta;
-}
 
-bool gritando2(senial s, int freq, int umbral) {
+bool gritando(senial s, int freq, int umbral) {
     int j =(freq * 2) - 1;
     int k = 0;
     senial subSenial;

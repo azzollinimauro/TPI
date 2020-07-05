@@ -40,7 +40,3 @@ TEST(seEnojoTEST, seEnojoAlFinal){
 
     ASSERT_TRUE(seEnojo(s, umbral, prof, freq));
 }
-
-
-
-
