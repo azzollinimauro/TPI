@@ -33,7 +33,7 @@ TEST(seEnojoTEST, seEnojoPorDebajoDelUmbral){
 }
 
 TEST(seEnojoTEST, seEnojoAlFinal){
-    senial s = {1,-1,1,1,0,1,0,1,1,0,1,0,1,0,0,0,1,-1,-2,0,-2,-1,-4,9,8,-7,12,-13,6,9,0,-6,8,-9,16,12,10};
+    senial s = {1,-1,1,1,0,1,0,1,1,0,1,0,1,0,0,0,1,-1,-2,0,-2,-1,-4,9,8,-7,12,-13,6,9,0,-6,8,-9,8,12,11};
     int prof = 8;
     int freq = 10;
     int umbral = 5;

@@ -17,7 +17,7 @@ bool seEnojo(senial s, int umbral, int prof, int freq) {
     bool resp = false;
 
     if(duraMasDe(s, freq, 2)){
-        resp = gritando(s,umbral);
+        resp = gritando2(s,freq,umbral);
     }
 
     return resp;
