@@ -97,7 +97,7 @@ TEST(tonosDeVozElevadosTEST, todosConTonoDeVozElevado){
     ASSERT_HABLANTES_EQ(tonosDeVozElevados(reunion, prof, freq), {0,1,2,3});
 }
 
-TEST(tonoDeVozElevadosTEST, ultimoHablanteConTonoDeVozElevado){
+TEST(tonosDeVozElevadosTEST, ultimoHablanteConTonoDeVozElevado){
     senial hablante1;
     senial hablante2;
     senial hablante3;
