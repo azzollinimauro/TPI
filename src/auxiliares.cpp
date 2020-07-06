@@ -71,7 +71,7 @@ bool gritando(senial s, int freq, int umbral) {
         subSenial.push_back(s[k]);
         k++;
     }
-    while(j < s.size() - 1 && tono(subSenial) <= umbral){ // el tiempo de ejecucion queda s + freq
+    while(j < s.size() - 1 && tono(subSenial) <= umbral){
         j++;
         subSenial.erase(subSenial.begin());
         subSenial.push_back(s[j]);
